@@ -19,7 +19,7 @@ class AuthService
             ]
         ));
         $token = $user->createToken("API Token");
-        return comgpact('user', 'token');
+        return compact('user', 'token');
     }
 
     public function profile(){
