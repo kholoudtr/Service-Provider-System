@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Client;
+namespace App\Http\Controllers\Provider;
 
 use App\Enums\RoleUserEnum;
 use App\Http\Controllers\Controller;
@@ -19,14 +19,14 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request){
         $attr = $request->validated();
-        $user = $this->authService->register($attr, RoleUserEnum::Client);
-        return $this->success(new ProfileResource($user), "User registered successfully");
+        $user = $this->authService->register($attr, RoleUserEnum::Provider);
+        return $this->success(new ProfileResource($user), "Provider registered successfully");
     }
 
     public function login(LoginRequest $request){
         $attr = $request->validated();
-        $user = $this->authService->login($attr, RoleUserEnum::Client);
-        return $this->success(new ProfileResource($user), "User logged in successfully");
+        $user = $this->authService->login($attr, RoleUserEnum::Provider);
+        return $this->success(new ProfileResource($user), "Provider logged in successfully");
     }
 
     public function profile() {
