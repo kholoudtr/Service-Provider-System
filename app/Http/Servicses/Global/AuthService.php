@@ -30,6 +30,7 @@ class AuthService
             "role" => $role
         ])){
                 $user = User::find(Auth::id());
+                if($role == RoleUserEnum::Admin) return $user;
                 $user->access_token = $user->createToken("API Token")->accessToken;
                 return $user;
         }
